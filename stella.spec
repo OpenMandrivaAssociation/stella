@@ -40,7 +40,7 @@ perl -pi -e "s|.png||" src/unix/stella.desktop
 
 %build
 touch configure.in
-%configure \
+%configure2_5x \
 %if %enable_gl
   --enable-gl \
 %else
@@ -100,7 +100,5 @@ rm -rf %{buildroot}
 %{_docdir}/stella/*
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/icons/%{name}.png
-%{_datadir}/icons/mini/%{name}.png
-%{_datadir}/icons/large/%{name}.png
+%{_iconsdir}/hicolor/*/apps/%{name}.png
 
