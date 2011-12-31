@@ -1,5 +1,5 @@
 Name:			stella
-Version:		3.4.1
+Version:		3.5
 Release:		%mkrel 1
 
 %define enable_gl	1
@@ -94,14 +94,6 @@ desktop-file-install --vendor="" \
 
 %clean
 rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post
-%update_menus
-
-%postun
-%clean_menus
-%endif
 
 %files
 %defattr(-,root,root,-)
