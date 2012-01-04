@@ -17,7 +17,7 @@ URL:		http://stella.sourceforge.net
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.gz
 
 BuildRequires:	SDL-devel
-BuildRequires:	MesaGLU-devel
+BuildRequires:	mesaglu-devel
 BuildRequires:	zlib-devel
 %if %enable_snapshot
 BuildRequires:	png-devel
