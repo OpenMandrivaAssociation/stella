@@ -1,7 +1,3 @@
-Name:			stella
-Version:		3.5
-Release:		%mkrel 1
-
 %define enable_gl	1
 %define enable_sound	1
 %define enable_debugger	1
@@ -10,23 +6,23 @@ Release:		%mkrel 1
 %define enable_cheats	1
 %define enable_static	0
 
+Name:		stella
+Version:	3.5.5
+Release:	%mkrel 1
 Summary:	An Atari 2600 Video Computer System emulator
 License:	GPLv2+
 Group:		Emulators
 URL:		http://stella.sourceforge.net
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.gz
-
 BuildRequires:	SDL-devel
 BuildRequires:	mesaglu-devel
 BuildRequires:	zlib-devel
-%if %enable_snapshot
+%if %{enable_snapshot}
 BuildRequires:	png-devel
 %endif
 BuildRequires:	desktop-file-utils
 #ctags
 BuildRequires:	xemacs-extras
-BuildRoot:	%{_tmppath}/%{name}-%{version}
-
 
 %description
 The Atari 2600 Video Computer System (VCS), introduced in 1977, was the most
@@ -41,37 +37,37 @@ perl -pi -e "s|.png||" src/unix/stella.desktop
 %build
 touch configure.in
 %configure2_5x \
-%if %enable_gl
+%if %{enable_gl}
   --enable-gl \
 %else
   --disable-gl \
 %endif
-%if %enable_sound
+%if %{enable_sound}
   --enable-sound \
 %else
   --disable-sound \
 %endif
-%if %enable_debugger
+%if %{enable_debugger}
   --enable-debugger \
 %else
   --disable-debugger \
 %endif
-%if %enable_snapshot
+%if %{enable_snapshot}
   --enable-snapshot \
 %else
   --disable-snapshot \
 %endif
-%if %enable_joystick
+%if %{enable_joystick}
   --enable-joystick \
 %else
   --disable-joystick \
 %endif
-%if %enable_cheats
+%if %{enable_cheats}
   --enable-cheats \
 %else
   --disable-cheats \
 %endif
-%if %enable_static
+%if %{enable_static}
   --enable-static \
 %else
   --enable-shared \
@@ -82,7 +78,7 @@ touch configure.in
 %make
 
 %install
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 
 make install-strip DESTDIR=%{buildroot}
 
@@ -93,7 +89,7 @@ desktop-file-install --vendor="" \
   %{buildroot}%{_datadir}/applications/*
 
 %clean
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
