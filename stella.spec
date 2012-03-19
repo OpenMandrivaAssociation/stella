@@ -7,7 +7,7 @@
 %define enable_static	0
 
 Name:		stella
-Version:	3.5.5
+Version:	3.6
 Release:	%mkrel 1
 Summary:	An Atari 2600 Video Computer System emulator
 License:	GPLv2+
@@ -32,7 +32,7 @@ on your PC.
 
 %prep
 %setup -q
-perl -pi -e "s|.png||" src/unix/stella.desktop
+%__perl -pi -e "s|.png||" src/unix/stella.desktop
 
 %build
 touch configure.in
@@ -80,7 +80,7 @@ touch configure.in
 %install
 %__rm -rf %{buildroot}
 
-make install-strip DESTDIR=%{buildroot}
+%__make install-strip DESTDIR=%{buildroot}
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
@@ -92,7 +92,6 @@ desktop-file-install --vendor="" \
 %__rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root,-)
 %{_docdir}/stella/*
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
