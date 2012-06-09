@@ -7,13 +7,13 @@
 %define enable_static	0
 
 Name:		stella
-Version:	3.7
+Version:	3.7.1
 Release:	%mkrel 1
 Summary:	An Atari 2600 Video Computer System emulator
 License:	GPLv2+
 Group:		Emulators
 URL:		http://stella.sourceforge.net
-Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.bz2
+Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.gz
 BuildRequires:	SDL-devel
 BuildRequires:	mesaglu-devel
 BuildRequires:	zlib-devel
