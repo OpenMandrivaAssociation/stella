@@ -7,22 +7,20 @@
 %define enable_static	0
 
 Name:		stella
-Version:	3.7.2
-Release:	%mkrel 1
+Version:	3.7.4
+Release:	1
 Summary:	An Atari 2600 Video Computer System emulator
 License:	GPLv2+
 Group:		Emulators
 URL:		http://stella.sourceforge.net
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.gz
-BuildRequires:	SDL-devel
-BuildRequires:	mesaglu-devel
-BuildRequires:	zlib-devel
+BuildRequires:	pkgconfig(glu)
+BuildRequires:	pkgconfig(sdl)
+BuildRequires:	pkgconfig(zlib)
 %if %{enable_snapshot}
-BuildRequires:	png-devel
+BuildRequires:	pkgconfig(libpng)
 %endif
 BuildRequires:	desktop-file-utils
-#ctags
-BuildRequires:	xemacs-extras
 
 %description
 The Atari 2600 Video Computer System (VCS), introduced in 1977, was the most
@@ -32,7 +30,8 @@ on your PC.
 
 %prep
 %setup -q
-%__perl -pi -e "s|.png||" src/unix/stella.desktop
+perl -pi -e "s|.png||" src/unix/stella.desktop
+perl -pi -e "s|$(INSTALL) -c -s|$(INSTALL) -c|" Makefile
 
 %build
 touch configure.in
@@ -78,18 +77,13 @@ touch configure.in
 %make
 
 %install
-%__rm -rf %{buildroot}
-
-%__make install-strip DESTDIR=%{buildroot}
+%makeinstall_std
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
   --add-category="X-MandrivaLinux-MoreApplications-Emulators" \
   --dir %{buildroot}%{_datadir}/applications/ \
   %{buildroot}%{_datadir}/applications/*
-
-%clean
-%__rm -rf %{buildroot}
 
 %files
 %{_docdir}/stella/*
