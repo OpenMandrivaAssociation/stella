@@ -7,7 +7,7 @@
 %define enable_static	0
 
 Name:		stella
-Version:	3.7.4
+Version:	3.8.1
 Release:	1
 Summary:	An Atari 2600 Video Computer System emulator
 License:	GPLv2+
