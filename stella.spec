@@ -6,13 +6,13 @@
 %define enable_cheats	1
 %define enable_static	0
 
-Name:		stella
-Version:	3.8.1
-Release:	1
 Summary:	An Atari 2600 Video Computer System emulator
+Name:		stella
+Version:	3.9
+Release:	1
 License:	GPLv2+
 Group:		Emulators
-URL:		http://stella.sourceforge.net
+Url:		http://stella.sourceforge.net
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.gz
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(sdl)
