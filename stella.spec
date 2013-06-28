@@ -1,7 +1,6 @@
 %define enable_gl	1
 %define enable_sound	1
 %define enable_debugger	1
-%define enable_snapshot	1
 %define enable_joystick	1
 %define enable_cheats	1
 %define enable_static	0
@@ -14,12 +13,11 @@ License:	GPLv2+
 Group:		Emulators
 Url:		http://stella.sourceforge.net
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.gz
+BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(sdl)
 BuildRequires:	pkgconfig(zlib)
-%if %{enable_snapshot}
 BuildRequires:	pkgconfig(libpng)
-%endif
 BuildRequires:	desktop-file-utils
 
 %description
@@ -34,8 +32,9 @@ perl -pi -e "s|.png||" src/unix/stella.desktop
 perl -pi -e "s|$(INSTALL) -c -s|$(INSTALL) -c|" Makefile
 
 %build
+%setup_compile_flags
 touch configure.in
-%configure2_5x \
+./configure \
 %if %{enable_gl}
   --enable-gl \
 %else
@@ -50,11 +49,6 @@ touch configure.in
   --enable-debugger \
 %else
   --disable-debugger \
-%endif
-%if %{enable_snapshot}
-  --enable-snapshot \
-%else
-  --disable-snapshot \
 %endif
 %if %{enable_joystick}
   --enable-joystick \
@@ -72,6 +66,7 @@ touch configure.in
   --enable-shared \
 %endif
   --docdir=%{_docdir}/stella \
+  --prefix=%{_prefix} \
   --x-libraries=%{_prefix}/X11R6/%{_lib}
 
 %make
