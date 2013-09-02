@@ -7,7 +7,7 @@
 
 Summary:	An Atari 2600 Video Computer System emulator
 Name:		stella
-Version:	3.9.1
+Version:	3.9.2
 Release:	1
 License:	GPLv2+
 Group:		Emulators
@@ -36,38 +36,38 @@ perl -pi -e "s|$(INSTALL) -c -s|$(INSTALL) -c|" Makefile
 touch configure.in
 ./configure \
 %if %{enable_gl}
-  --enable-gl \
+	--enable-gl \
 %else
-  --disable-gl \
+	--disable-gl \
 %endif
 %if %{enable_sound}
-  --enable-sound \
+	--enable-sound \
 %else
-  --disable-sound \
+	--disable-sound \
 %endif
 %if %{enable_debugger}
-  --enable-debugger \
+	--enable-debugger \
 %else
-  --disable-debugger \
+	--disable-debugger \
 %endif
 %if %{enable_joystick}
-  --enable-joystick \
+	--enable-joystick \
 %else
-  --disable-joystick \
+	--disable-joystick \
 %endif
 %if %{enable_cheats}
-  --enable-cheats \
+	--enable-cheats \
 %else
-  --disable-cheats \
+	--disable-cheats \
 %endif
 %if %{enable_static}
-  --enable-static \
+	--enable-static \
 %else
-  --enable-shared \
+	--enable-shared \
 %endif
-  --docdir=%{_docdir}/stella \
-  --prefix=%{_prefix} \
-  --x-libraries=%{_prefix}/X11R6/%{_lib}
+	--docdir=%{_docdir}/stella \
+	--prefix=%{_prefix} \
+	--x-libraries=%{_prefix}/X11R6/%{_lib}
 
 %make
 
