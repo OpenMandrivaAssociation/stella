@@ -15,7 +15,7 @@ Url:		https://stella-emu.github.io/
 Source0:	https://github.com/stella-emu/stella/releases/download/%{version}/%{name}-%{version}-src.tar.xz
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
-BuildRequires:	pkgconfig(sdl)
+BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	desktop-file-utils
