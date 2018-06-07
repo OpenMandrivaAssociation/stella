@@ -7,15 +7,15 @@
 
 Summary:	An Atari 2600 Video Computer System emulator
 Name:		stella
-Version:	3.9.3
-Release:	2
+Version:	5.1.2
+Release:	1
 License:	GPLv2+
 Group:		Emulators
-Url:		http://stella.sourceforge.net
-Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.gz
+Url:		https://stella-emu.github.io/
+Source0:	https://github.com/stella-emu/stella/releases/download/%{version}/%{name}-%{version}-src.tar.xz
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
-BuildRequires:	pkgconfig(sdl)
+BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	desktop-file-utils
