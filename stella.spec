@@ -7,7 +7,7 @@
 
 Summary:	An Atari 2600 Video Computer System emulator
 Name:		stella
-Version:	6.0
+Version:	6.0.2
 Release:	1
 License:	GPLv2+
 Group:		Emulators
@@ -69,10 +69,10 @@ touch configure.in
 	--prefix=%{_prefix} \
 	--x-libraries=%{_prefix}/X11R6/%{_lib}
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
