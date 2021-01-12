@@ -7,7 +7,7 @@
 
 Summary:	An Atari 2600 Video Computer System emulator
 Name:		stella
-Version:	6.4
+Version:	6.5
 Release:	1
 License:	GPLv2+
 Group:		Emulators
