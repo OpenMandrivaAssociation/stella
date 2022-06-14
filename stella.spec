@@ -20,6 +20,8 @@ BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	desktop-file-utils
 
+BuildRequires:	glibc-static-devel
+
 %description
 The Atari 2600 Video Computer System (VCS), introduced in 1977, was the most
 popular home video game system of the early 1980's.  This emulator will run
