@@ -13,6 +13,11 @@ License:	GPLv2+
 Group:		Emulators
 Url:		https://stella-emu.github.io/
 Source0:	https://github.com/stella-emu/stella/releases/download/%{version}/%{name}-%{version}-src.tar.xz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(sdl2)
